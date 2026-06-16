@@ -469,28 +469,21 @@ document.getElementById("cartTotal").innerText=total;
 renderCart();
 }
 
-function renderCart(){
+function renderCart() {
 
-let html="";
+let message = "வணக்கம் இதயம் ஸ்டோர்,%0A%0A";
+message += "நான் கீழே உள்ள பொருட்களை ஆர்டர் செய்ய விரும்புகிறேன்:%0A%0A";
 
-cart.forEach(item=>{
-html+=`<p>${item.name} - ₹${item.price}</p>`;
+cart.forEach(item => {
+    message += `🛒 ${item.name} - ₹${item.price}%0A`;
 });
 
-document.getElementById("cartItems").innerHTML=html;
+message += `%0A💰 மொத்த தொகை: ₹${total}%0A`;
+message += `%0A📍 தயவுசெய்து என் ஆர்டரை உறுதிப்படுத்தவும்.`;
 
-let message="Hello Idhayam Store,%0A%0AI would like to order:%0A";
-
-cart.forEach(item=>{
-message+=`- ${item.name} ₹${item.price}%0A`;
-});
-
-message+=`%0ATotal: ₹${total}`;
-
-document.getElementById("whatsappBtn").href=
+document.getElementById("whatsappBtn").href =
 `https://wa.me/919500385021?text=${message}`;
 }
-
 document.getElementById("search").addEventListener("keyup",(e)=>{
 
 const value=e.target.value.toLowerCase();

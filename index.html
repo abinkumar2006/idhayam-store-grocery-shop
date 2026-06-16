@@ -466,9 +466,9 @@ productList.forEach(product => {
       <p>${product.tamil}</p>
       <small>${product.category}</small>
       <div class="price">₹${product.price}</div>
-    <button onclick='addToCart(${JSON.stringify(product)})'>
-    Add to Cart
-    </button>
+      <button onclick='addToCart(${JSON.stringify(product)})'>
+      Add to Cart
+      </button>
   </div>
 </div>
 `;
@@ -478,7 +478,7 @@ productList.forEach(product => {
 
 displayProducts(products);
 
-function addToCart(product) {
+function addToCart(product){
 
     const existingItem = cart.find(
         item => item.name === product.name
@@ -486,9 +486,11 @@ function addToCart(product) {
 
     if(existingItem){
         existingItem.quantity++;
-    } else {
+    }else{
         cart.push({
-            ...product,
+            name: product.name,
+            tamil: product.tamil,
+            price: product.price,
             quantity: 1
         });
     }

@@ -469,11 +469,19 @@ renderCart();
 
 function renderCart() {
 
-let message = "வணக்கம் இதயம் ஸ்டோர்,%0A%0A";
+let message
+    message += "வணக்கம் இதயம் ஸ்டோர்,%0A%0A";
 message += "நான் கீழே உள்ள பொருட்களை ஆர்டர் செய்ய விரும்புகிறேன்:%0A%0A";
 
 cart.forEach(item => {
-    message += `🛒 ${item.name} - ₹${item.price}%0A`;
+    cart.forEach(item=>{
+
+msg += "- " + item.name +
+
+" ₹" + item.price +
+
+"%0A";
+    
 });
 
 message += `%0A💰 மொத்த தொகை: ₹${total}%0A`;
@@ -482,6 +490,7 @@ message += `%0A📍 தயவுசெய்து என் ஆர்டரை 
 document.getElementById("whatsappBtn").href =
 `https://wa.me/919500385021?text=${message}`;
 }
+    
 document.getElementById("search").addEventListener("keyup",(e)=>{
 
 const value=e.target.value.toLowerCase();
